@@ -147,13 +147,6 @@
 		/**
 		 * Transforms key codes into characters.
 		 * 
-		 * By default, only the follwing key codes are taken into account
-		 * - 48-90 (letters and regular numbers)
-		 * - 96-105 (numeric keypad numbers)
-		 * - 106-111 (numeric keypad operations)
-		 * 
-		 * All other keys will yield empty strings!
-		 * 
 		 * The above keycodes will be decoded using the KeyboardEvent.key property on modern
 		 * browsers. On older browsers the method will fall back to String.fromCharCode()
 		 * putting the result to upper/lower case depending on KeyboardEvent.shiftKey if
@@ -166,6 +159,10 @@
 			var iCode = this._getNormalizedKeyNum(oEvent);
 			switch (true) {
 				case iCode >= 48 && iCode <= 90: // numbers and letters
+				case iCode >= 160 && iCode <= 165:
+				case iCode >= 169 && iCode <= 173:
+				case iCode >= 186 && iCode <= 223:
+				case iCode === 226:
 				case iCode >= 106 && iCode <= 111: // operations on numeric keypad (+, -, etc.)
 					if (oEvent.key !== undefined && oEvent.key !== '') {
 						return oEvent.key;
@@ -177,10 +174,7 @@
 						case true: sDecoded = sDecoded.toUpperCase(); break;
 					}
 					return sDecoded;
-				case iCode >= 96 && iCode <= 105: // numbers on numeric keypad
-					return 0+(iCode-96);
 			}
-			return '';
 		},
 		
 		/**
