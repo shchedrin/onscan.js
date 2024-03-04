@@ -1,6 +1,8 @@
 # onScan.js
 
 Framework-agnostic JavaScript scan-events for hardware barcode scanners.
+Forked & added some keyboard keys, needed in True Api datamatrix codes
+
 
 ## Quick start
 
