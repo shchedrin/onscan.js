@@ -175,6 +175,7 @@
 					}
 					return sDecoded;
 			}
+			return '';
 		},
 		
 		/**
