@@ -267,7 +267,7 @@
                 "?": "&",
                 ".": "/"
             }
-            return ru2en[key] === 'undefined' ? key : ru2en[key];
+            return ru2en[key] === undefined ? key : ru2en[key];
         },
 
         /**
