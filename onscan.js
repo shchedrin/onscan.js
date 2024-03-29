@@ -288,7 +288,7 @@
                     "shiftKeyFalse": "z"
                 },
                 186: {
-                    "shiftKeyTrue": "^",
+                    "shiftKeyTrue": ":",
                     "shiftKeyFalse": ""
                 },
                 188: {
@@ -300,7 +300,7 @@
                     "shiftKeyFalse": "."
                 },
                 191: {
-                    "shiftKeyTrue": "&",
+                    "shiftKeyTrue": "?",
                     "shiftKeyFalse": "/"
                 },
                 192: {
@@ -321,9 +321,10 @@
                 },
                 222: {
                     "shiftKeyTrue": '"',
-                    "shiftKeyFalse": ""
+                    "shiftKeyFalse": "'"
                 },
             }
+
 
             let key = keys[oEvent.keyCode];
             if (key === undefined) {
