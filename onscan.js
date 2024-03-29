@@ -172,102 +172,166 @@
                 case iCode >= 186 && iCode <= 223:
                 case iCode === 226:
                 case iCode >= 106 && iCode <= 111: // operations on numeric keypad (+, -, etc.)
-                    let sDecoded = String.fromCharCode(iCode);
-                    if (oEvent.key !== undefined && oEvent.key !== '') {
-                        sDecoded = oEvent.key;
-                    }
-
-                    switch (oEvent.shiftKey) {
-                        case false:
-                            sDecoded = sDecoded.toLowerCase();
-                            break;
-                        case true:
-                            sDecoded = sDecoded.toUpperCase();
-                            break;
-                    }
-                    if (navigator.language === 'ru' || navigator.language === 'ru-RU') {
-                        return this.ruToEnLocale(sDecoded);
-                    } else {
-                        return sDecoded;
-                    }
+                    return this.decodeKey(oEvent);
             }
             return '';
         },
 
-        ruToEnLocale: function (key) {
-            let ru2en = {
-                "Ë": "~",
-                "ё": "`",
-                "\"": "@",
-                "№": "#",
-                "й": "q",
-                "ц": "w",
-                "у": "e",
-                "к": "r",
-                "е": "t",
-                "н": "y",
-                "г": "u",
-                "ш": "i",
-                "щ": "o",
-                "з": "p",
-                "х": "[",
-                "ъ": "]",
-                "ф": "a",
-                "ы": "s",
-                "в": "d",
-                "а": "f",
-                "п": "g",
-                "р": "h",
-                "о": "j",
-                "л": "k",
-                "д": "l",
-                "ж": ";",
-                "э": "'",
-                "я": "z",
-                "ч": "x",
-                "с": "c",
-                "м": "v",
-                "и": "b",
-                "т": "n",
-                "ь": "m",
-                "Й": "Q",
-                "Ц": "W",
-                "У": "E",
-                "К": "R",
-                "Е": "T",
-                "Н": "Y",
-                "Г": "U",
-                "Ш": "I",
-                "Щ": "O",
-                "З": "P",
-                "Х": "{",
-                "Ъ": "}",
-                "Ф": "A",
-                "Ы": "S",
-                "В": "D",
-                "А": "F",
-                "П": "G",
-                "Р": "H",
-                "О": "J",
-                "Л": "K",
-                "Д": "L",
-                "Ж": ":",
-                "Э": "\"",
-                "Я": "Z",
-                "Ч": "X",
-                "С": "C",
-                "М": "V",
-                "И": "B",
-                "Т": "N",
-                "Ь": "M",
-                "б": ",",
-                "ю": ".",
-                "Б": "<",
-                "Ю": ">",
-                "?": "&",
-                ".": "/"
+        decodeKey: function (oEvent) {
+            const keys= {
+                51: {
+                    "shiftKeyTrue": "#",
+                    "shiftKeyFalse": "3"
+                },
+                65: {
+                    "shiftKeyTrue": "A",
+                    "shiftKeyFalse": "a"
+                },
+                66: {
+                    "shiftKeyTrue": "B",
+                    "shiftKeyFalse": "b"
+                },
+                67: {
+                    "shiftKeyTrue": "C",
+                    "shiftKeyFalse": "c"
+                },
+                68: {
+                    "shiftKeyTrue": "D",
+                    "shiftKeyFalse": "d"
+                },
+                69: {
+                    "shiftKeyTrue": "E",
+                    "shiftKeyFalse": "e"
+                },
+                70: {
+                    "shiftKeyTrue": "F",
+                    "shiftKeyFalse": "f"
+                },
+                71: {
+                    "shiftKeyTrue": "G",
+                    "shiftKeyFalse": "g"
+                },
+                72: {
+                    "shiftKeyTrue": "H",
+                    "shiftKeyFalse": "h"
+                },
+                73: {
+                    "shiftKeyTrue": "I",
+                    "shiftKeyFalse": "i"
+                },
+                74: {
+                    "shiftKeyTrue": "J",
+                    "shiftKeyFalse": "j"
+                },
+                75: {
+                    "shiftKeyTrue": "K",
+                    "shiftKeyFalse": "k"
+                },
+                76: {
+                    "shiftKeyTrue": "L",
+                    "shiftKeyFalse": "l"
+                },
+                77: {
+                    "shiftKeyTrue": "M",
+                    "shiftKeyFalse": "m"
+                },
+                78: {
+                    "shiftKeyTrue": "N",
+                    "shiftKeyFalse": "n"
+                },
+                79: {
+                    "shiftKeyTrue": "O",
+                    "shiftKeyFalse": "o"
+                },
+                80: {
+                    "shiftKeyTrue": "P",
+                    "shiftKeyFalse": "p"
+                },
+                81: {
+                    "shiftKeyTrue": "Q",
+                    "shiftKeyFalse": "q"
+                },
+                82: {
+                    "shiftKeyTrue": "R",
+                    "shiftKeyFalse": "r"
+                },
+                83: {
+                    "shiftKeyTrue": "S",
+                    "shiftKeyFalse": "s"
+                },
+                84: {
+                    "shiftKeyTrue": "T",
+                    "shiftKeyFalse": "t"
+                },
+                85: {
+                    "shiftKeyTrue": "U",
+                    "shiftKeyFalse": "u"
+                },
+                86: {
+                    "shiftKeyTrue": "V",
+                    "shiftKeyFalse": "v"
+                },
+                87: {
+                    "shiftKeyTrue": "W",
+                    "shiftKeyFalse": "w"
+                },
+                88: {
+                    "shiftKeyTrue": "X",
+                    "shiftKeyFalse": "x"
+                },
+                89: {
+                    "shiftKeyTrue": "Y",
+                    "shiftKeyFalse": "y"
+                },
+                90: {
+                    "shiftKeyTrue": "Z",
+                    "shiftKeyFalse": "z"
+                },
+                186: {
+                    "shiftKeyTrue": "^",
+                    "shiftKeyFalse": ""
+                },
+                188: {
+                    "shiftKeyTrue": "<",
+                    "shiftKeyFalse": ","
+                },
+                190: {
+                    "shiftKeyTrue": ">",
+                    "shiftKeyFalse": "."
+                },
+                191: {
+                    "shiftKeyTrue": "&",
+                    "shiftKeyFalse": "|"
+                },
+                192: {
+                    "shiftKeyTrue": "~",
+                    "shiftKeyFalse": "`"
+                },
+                219: {
+                    "shiftKeyTrue": "{",
+                    "shiftKeyFalse": "["
+                },
+                220: {
+                    "shiftKeyTrue": "|",
+                    "shiftKeyFalse": "\""
+                },
+                221: {
+                    "shiftKeyTrue": "}",
+                    "shiftKeyFalse": "]"
+                },
+                222: {
+                    "shiftKeyTrue": "@",
+                    "shiftKeyFalse": ""
+                },
+
             }
-            return ru2en[key] === undefined ? key : ru2en[key];
+
+            let key = keys[oEvent.keyCode];
+            if (key === undefined) {
+                return oEvent.key;
+            } else {
+                return oEvent.shiftKey === true ? key.shiftKeyTrue : key.shiftKeyFalse;
+            }
         },
 
         /**
