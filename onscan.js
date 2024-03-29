@@ -301,7 +301,7 @@
                 },
                 191: {
                     "shiftKeyTrue": "&",
-                    "shiftKeyFalse": "|"
+                    "shiftKeyFalse": "/"
                 },
                 192: {
                     "shiftKeyTrue": "~",
@@ -320,10 +320,9 @@
                     "shiftKeyFalse": "]"
                 },
                 222: {
-                    "shiftKeyTrue": "@",
+                    "shiftKeyTrue": '"',
                     "shiftKeyFalse": ""
                 },
-
             }
 
             let key = keys[oEvent.keyCode];
