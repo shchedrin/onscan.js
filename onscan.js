@@ -289,7 +289,7 @@
                 },
                 186: {
                     "shiftKeyTrue": ":",
-                    "shiftKeyFalse": ""
+                    "shiftKeyFalse": ";"
                 },
                 188: {
                     "shiftKeyTrue": "<",
